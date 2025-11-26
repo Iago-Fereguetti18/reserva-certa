@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Entrar{% endblock %}
+
+{% block content %}
+  <div class="container" style="padding:20px;max-width:600px;margin:20px auto;">
+    <header><h1>Entrar</h1></header>
+    <form method="post">
+      <label>Usuário ID</label><br>
+      <input name="user_id" placeholder="u1"><br><br>
+      <button class="btn" type="submit">Entrar</button>
+    </form>
+    <p>Obs: use um ID existente (ex: u1, u2...).</p>
+  </div>
+{% endblock %}

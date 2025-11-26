@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Agenda — {{ date }}{% endblock %}
+
+{% block content %}
+  <header><h1>Agenda de {{ date }}</h1></header>
+  <div class="container" style="padding:20px">
+    {% if agenda %}
+      {% for space, reservations in agenda.items() %}
+        <div class="card">
+          <h3>{{ space }}</h3>
+          {% for r in reservations %}
+            <p><strong>{{ r.start.split('T')[1][:5] }} - {{ r.end.split('T')[1][:5] }}</strong> — Usuário: {{ r.user_id }} — Status: {{ r.status }}</p>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>Não há reservas para hoje.</p>
+    {% endif %}
+  </div>
+{% endblock %}

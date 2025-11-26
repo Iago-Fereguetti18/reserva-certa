@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Reserva Certa — Início{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Menu</h2>
+      <a href="/">Reservar Espaço</a>
+      <a href="{{ url_for('spaces_list') }}">Consultar Espaços</a>
+      <a href="{{ url_for('daily_agenda') }}">Agenda do Dia</a>
+      <a href="{{ url_for('reports') }}">Relatórios</a>
+    </aside>
+    <main class="content">
+      <h2>Espaços Disponíveis</h2>
+      {% for s in spaces %}
+      <div class="card">
+        <h3>{{ s.name }}</h3>
+        <p>Capacidade: {{ s.capacity }}</p>
+        <p>Equipamentos: {{ s.equipments }}</p>
+        <a class="btn" href="{{ url_for('reservar', space_id=s.id) }}">Reservar</a>
+      </div>
+      {% endfor %}
+
+      <h2>Minhas Reservas</h2>
+      <table>
+        <tr><th>Espaço</th><th>Início</th><th>Fim</th><th>Status</th><th>Ações</th></tr>
+        {% for r in my_reservations %}
+        <tr>
+          <td>{{ r.space_id }}</td>
+          <td>{{ r.start }}</td>
+          <td>{{ r.end }}</td>
+          <td>{{ r.status }}</td>
+          <td>
+            {% if r.status != 'CANCELED' %}
+            <form method="post" action="{{ url_for('cancelar', reservation_id=r.id) }}" style="display:inline">
+              <button class="btn" type="submit">Cancelar</button>
+            </form>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </main>
+  </div>
+{% endblock %}

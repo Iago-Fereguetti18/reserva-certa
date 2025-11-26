@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Reservar — {{ space.name }}{% endblock %}
+
+{% block content %}
+  <header><h1>Reservar: {{ space.name }}</h1></header>
+  <div class="container" style="padding:20px">
+    <form method="post">
+      <label>Usuário ID (ex: u1)</label><br>
+      <input name="user_id" value="{{ session.get('user_id','u1') }}"><br><br>
+      <label>Início (YYYY-MM-DDTHH:MM)</label><br>
+      <input name="start" placeholder="2025-09-11T16:00"><br><br>
+      <label>Fim (YYYY-MM-DDTHH:MM)</label><br>
+      <input name="end" placeholder="2025-09-11T18:00"><br><br>
+      <button class="btn" type="submit">Reservar</button>
+    </form>
+    <p><a href="{{ url_for('index') }}">Voltar</a></p>
+  </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Cadastrar Espaço{% endblock %}
+
+{% block content %}
+  <header><h1>Cadastrar Novo Espaço</h1></header>
+  <div class="container" style="padding:20px">
+    <form method="post">
+      <label>Nome</label><br>
+      <input name="name" required><br><br>
+      <label>Capacidade</label><br>
+      <input name="capacity" type="number" value="10"><br><br>
+      <label>Equipamentos (vírgula separado)</label><br>
+      <input name="equipments" placeholder="Projetor,Mesa"><br><br>
+      <label>Preço por hora (ex: 50.0)</label><br>
+      <input name="price_per_hour" type="number" step="0.01" value="0"><br><br>
+      <label>Descrição</label><br>
+      <input name="description"><br><br>
+      <button class="btn" type="submit">Criar Espaço</button>
+    </form>
+    <p><a href="{{ url_for('spaces_list') }}">Voltar</a></p>
+  </div>
+{% endblock %}

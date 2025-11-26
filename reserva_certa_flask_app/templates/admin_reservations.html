@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Reservas (Admin){% endblock %}
+
+{% block content %}
+  <header><h1>Reservas (Admin)</h1></header>
+  <div class="container" style="padding:20px">
+    <table>
+      <tr><th>ID</th><th>Usuário</th><th>Espaço</th><th>Início</th><th>Fim</th><th>Status</th><th>Ações</th></tr>
+      {% for r in reservations %}
+      <tr>
+        <td>{{ r.id }}</td>
+        <td>{{ r.user_id }}</td>
+        <td>{{ r.space_id }}</td>
+        <td>{{ r.start }}</td>
+        <td>{{ r.end }}</td>
+        <td>{{ r.status }}</td>
+        <td>
+          {% if r.status != 'CANCELED' %}
+          <form method="post" action="{{ url_for('cancelar', reservation_id=r.id) }}" style="display:inline">
+            <button class="btn" type="submit">Cancelar</button>
+          </form>
+          {% endif %}
+        </td>
+      </tr>
+      {% else %}
+        <tr><td colspan="7">Nenhuma reserva.</td></tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Relatórios{% endblock %}
+
+{% block content %}
+  <header><h1>Relatórios</h1></header>
+  <div class="container" style="padding:20px">
+    <div class="card">
+      <h3>Resumo Geral</h3>
+      <p>Total de reservas: <strong>{{ total }}</strong></p>
+    </div>
+
+    <div class="card">
+      <h3>Reservas por Espaço</h3>
+      {% for space, cnt in by_space.items() %}
+        <p>{{ space }}: {{ cnt }}</p>
+      {% else %}
+        <p>Nenhum dado.</p>
+      {% endfor %}
+    </div>
+
+    <div class="card">
+      <h3>Reservas por Status</h3>
+      {% for status, cnt in by_status.items() %}
+        <p>{{ status }}: {{ cnt }}</p>
+      {% else %}
+        <p>Nenhum dado.</p>
+      {% endfor %}
+    </div>
+
+  </div>
+{% endblock %}

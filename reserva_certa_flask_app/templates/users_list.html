@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Usuários — Reserva Certa{% endblock %}
+
+{% block content %}
+  <header><h1>Usuários</h1></header>
+  <div class="container" style="padding:20px">
+    {% for u in users %}
+      <div class="card">
+        <h3>{{ u.name }} ({{ u.id }})</h3>
+        <p>Email: {{ u.email }}</p>
+        <p>Admin: {{ 'Sim' if u.is_admin else 'Não' }}</p>
+      </div>
+    {% else %}
+      <p>Nenhum usuário.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reserva Certa</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Reserva Certa</h1>
+      <nav>
+        <a href="/">Início</a>
+        <a href="#">Minhas Reservas</a>
+        <a href="#">Perfil</a>
+      </nav>
+    </header>
+    <div class="container">
+      <aside class="sidebar">
+        <h2>Menu</h2>
+        <a href="/">Reservar Espaço</a>
+        <a href="#">Consultar Espaços</a>
+        <a href="#">Agenda do Dia</a>
+        <a href="#">Relatórios</a>
+      </aside>
+      <main class="content">
+        <h2>Espaços Disponíveis</h2>
+        
+        <div class="card">
+          <h3>Sala Reunião A</h3>
+          <p>Capacidade: 10</p>
+          <p>Equipamentos: Projetor,Mesa</p>
+          <a class="btn" href="/reservar/s1">Reservar</a>
+        </div>
+        
+        <div class="card">
+          <h3>Auditório</h3>
+          <p>Capacidade: 100</p>
+          <p>Equipamentos: PA,Microfone</p>
+          <a class="btn" href="/reservar/s2">Reservar</a>
+        </div>
+        
+
+        <h2>Minhas Reservas</h2>
+        <table>
+          <tr><th>Espaço</th><th>Início</th><th>Fim</th><th>Status</th><th>Ações</th></tr>
+          
+          <tr>
+            <td>s1</td>
+            <td>2025-09-11T16:00:00Z</td>
+            <td>2025-09-11T18:00:00Z</td>
+            <td>CONFIRMED</td>
+            <td>
+              
+              <form method="post" action="/cancelar/r1" style="display:inline">
+                <button class="btn" type="submit">Cancelar</button>
+              </form>
+              
+            </td>
+          </tr>
+          
+        </table>
+
+      </main>
+    </div>
+  </body>
+</html>
