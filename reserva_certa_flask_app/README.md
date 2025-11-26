@@ -82,8 +82,6 @@ Se quiser, eu posso:
 - gerar um README mais detalhado com exemplos de queries e testes automatizados.
 
 ---
-Gerado automaticamente pelo assistente — se quiser que eu execute alguma das opções acima, diga qual.
-Reserva Certa - Aplicação Flask (Protótipo)
 
 Como executar:
 1. Instale dependências:
